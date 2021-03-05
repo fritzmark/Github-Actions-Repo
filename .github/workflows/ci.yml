@@ -1,0 +1,11 @@
+# da code
+
+name: Meine CI Pipeline
+
+on: push
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
