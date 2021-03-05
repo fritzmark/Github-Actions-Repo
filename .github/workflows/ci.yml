@@ -29,6 +29,11 @@ jobs:
       - run: yarn run test
         env:
           MEINE_GANZ_NORMALE_VARIABLE: ${{secrets.MEINE_GEHEIME_VARIABLE}}
+      - name: Artefacts upload
+        uses: actions/upload-artifacts@v2
+        with:
+          name: My-Test-Artefacts
+          path: ./package.json
   deploy:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -43,3 +48,4 @@ jobs:
           node-version: 15.x
       - run: npm install -g yarn
       - run: yarn install
+        
