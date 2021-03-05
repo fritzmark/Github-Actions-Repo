@@ -27,13 +27,14 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn run test
+      - run: touch ${{ matrix.node-version }}.txt
         env:
           MEINE_GANZ_NORMALE_VARIABLE: ${{secrets.MEINE_GEHEIME_VARIABLE}}
       - name: Artefacts upload
         uses: actions/upload-artifact@v2
         with:
           name: My-Test-Artefacts
-          path: ./package${{ matrix.node-version }}.json
+          path: ./*.txt
   deploy:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
