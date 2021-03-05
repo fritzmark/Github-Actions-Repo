@@ -4,8 +4,16 @@ name: Meine CI Pipeline
 
 on: push
 
+env:
+  MEINE_VARIABLE: asdf
+
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      MEINE_VARIABLE: asdfgh
     steps:
       - uses: actions/checkout@v2
+        env:
+          MEINE_VARIABLE: asdfghjkl
+      - 
