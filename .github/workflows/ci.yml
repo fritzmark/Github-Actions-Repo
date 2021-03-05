@@ -27,9 +27,9 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn run test
-      - run: touch ${{ matrix.node-version }}.txt
         env:
           MEINE_GANZ_NORMALE_VARIABLE: ${{secrets.MEINE_GEHEIME_VARIABLE}}
+      - run: touch ${{ matrix.node-version }}.txt
       - name: Artefacts upload
         uses: actions/upload-artifact@v2
         with:
