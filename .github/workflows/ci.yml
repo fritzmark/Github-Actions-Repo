@@ -30,7 +30,7 @@ jobs:
         env:
           MEINE_GANZ_NORMALE_VARIABLE: ${{secrets.MEINE_GEHEIME_VARIABLE}}
       - name: Artefacts upload
-        uses: actions/upload-artifacts@v2
+        uses: actions/upload-artifact@v2
         with:
           name: My-Test-Artefacts
           path: ./package.json
